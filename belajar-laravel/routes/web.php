@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CastController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,17 @@ use App\Http\Controllers\AuthController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/register', [AuthController::class, 'form']);
 Route::post('/home', [AuthController::class, 'addData']);
+
+Route::get('/master', function () {
+    return view('layout.master');
+});
+
+Route::get('/table', function () {
+    return view('pages.table');
+});
+
+Route::get('/data-table', function () {
+    return view('pages.datatable');
+});
+
+Route::resource('cast', CastController::class);
